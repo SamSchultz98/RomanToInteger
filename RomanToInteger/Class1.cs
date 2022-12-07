@@ -11,7 +11,7 @@ namespace RomanToInteger
       int romanToInt(string s)
         {
             int sum = 0;
-            Dictionary<char, int> romanRumbersDictionary = new()
+            Dictionary<char, int> romanNumbersDictionary = new()
             {
                 {'I',1 },
                 {'V',5 },
@@ -25,7 +25,16 @@ namespace RomanToInteger
             {
                 char currentRomanChar = s[i];
                 romanNumbersDictionary.TryGetValue(currentRomanChar, out int num);
+             if (i + 1 < s.Length && romanNumbersDictionary[s[i + 1]] > romanNumbersDictionary[currentRomanChar]) 
+                {
+                    sum -= num;
+                }
+             else
+                {
+                    sum += num;
+                }
             }
+            return sum;
         }
     }
 }
