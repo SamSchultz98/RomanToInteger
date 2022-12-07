@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RomanToInteger
 {
-    internal class Solution
+    public class Solution
     {
-        private int RomanToInt(string s)
+       public int RomanToInt(string s)
         {
             int sum = 0;
             Dictionary<char, int> romanNumbersDictionary = new()
@@ -28,9 +28,14 @@ namespace RomanToInteger
                if(i > 3999)
                 {
                     Console.WriteLine("Too Large");
+                    return 0;
+                }
+               if (i < 0)
+                {
+                    return 0;
                 }
                sum += num;
-                return sum;
+               return sum;
             }
             
         }
