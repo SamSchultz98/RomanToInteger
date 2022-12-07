@@ -1,2 +1,2 @@
 ﻿string s = Console.ReadLine();
-RomanToInteger(s);
+RomanToInteger(s)

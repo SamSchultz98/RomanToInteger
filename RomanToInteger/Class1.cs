@@ -8,7 +8,7 @@ namespace RomanToInteger
 {
     internal class Solution
     {
-      int romanToInt(string s)
+        private int RomanToInt(string s)
         {
             int sum = 0;
             Dictionary<char, int> romanNumbersDictionary = new()
@@ -23,18 +23,16 @@ namespace RomanToInteger
             };
             for (int i = 0; i < s.Length; i++)
             {
-                char currentRomanChar = s[i];
-                romanNumbersDictionary.TryGetValue(currentRomanChar, out int num);
-             if (i + 1 < s.Length && romanNumbersDictionary[s[i + 1]] > romanNumbersDictionary[currentRomanChar]) 
+               char Current = s[i];
+               romanNumbersDictionary.TryGetValue(s[i], out int num);
+               if(i > 3999)
                 {
-                    sum -= num;
+                    Console.WriteLine("Too Large");
                 }
-             else
-                {
-                    sum += num;
-                }
+               sum += num;
+                return sum;
             }
-            return sum;
+            
         }
     }
 }
